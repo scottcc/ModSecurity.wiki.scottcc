@@ -3783,7 +3783,7 @@ if ($#ARGV != 0) {
 
 my ($FILE) = shift @ARGV;
 
-$cmd = "$CLAMSCAN --stdout --disable-summary $FILE";
+$cmd = "$CLAMSCAN --stdout --no-summary $FILE";
 $input = `$cmd`;
 $input =~ m/^(.+)/;
 $error_message = $1;
