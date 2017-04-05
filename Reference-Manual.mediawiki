@@ -3815,7 +3815,7 @@ SecRule FILES_TMPNAMES "@inspectFile /path/to/util/runav.pl" "id:159"
 
 Example of using Lua script (placed in the same directory as the configuration file):
 <pre>
-SecRule FILES_TMPNANMES "@inspectFile inspect.lua" "id:160"
+SecRule FILES_TMPNAMES "@inspectFile inspect.lua" "id:160"
 </pre>
 
 The contents of inspect.lua:
