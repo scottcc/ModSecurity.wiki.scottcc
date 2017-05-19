@@ -1683,13 +1683,17 @@ If SecStatusEngine directive is not present, it is disabled.  If SecStatusEngine
 
 '''Scope:''' Any
 
-'''Version:''' 2.6.0
+'''Version:''' 2.6.0-2.9.x
 
 '''Default:''' Off
+
+'''Supported on libModSecurity:''' No
 
 This feature enables the creation of the STREAM_INPUT_BODY variable and is useful for data modification or to match data in raw data for any content-types.
 
 ; Note : This directive provides full access to REQUEST_BODY payload data.  It does not include REQUEST_URI or REQUEST_HEADER data. Also it provides data to all kind of content types, different than REQUEST_BODY.
+
+; Note : This directive is NOT supported for libModSecurity (v3). Naturally, STREAM_INPUT_BODY is also NOT supported on libModSecurity.
 
 == SecStreamOutBodyInspection ==
 '''Description:''' Configures the ability to use stream inspection for outbound request data in a re-allocable buffer.  For security reasons we are still buffering the stream.
@@ -2486,10 +2490,16 @@ SecRule SESSION:blocked "@eq 1" "phase:2,id:73,deny,status:403"
 This variable contains the value set with setsid. See SESSION (above) for a complete example.
 
 == STREAM_INPUT_BODY ==
+'''Version:''' 2.6.0-2.9.x
+
+'''Supported on libModSecurity:''' No
+
 This variable give access to the raw request body content.  This variable is best used for two use-cases:
 #For fast pattern matching - using @pm/@pmf to prequalify large text strings against any kind of content-type data.  This is more performant vs. using REQUEST_BODY/ARGS_POST/ARGS_POST_NAMES as it happens before ModSecurity parsing in phase:2 variable population.
 #For data substitution - using @rsub against this variable allows you to manipulate live request body data.  Example - to remove offending payloads or to substitute benign data.
 ; Note : You must enable the SecStreamInBodyInspection directive
+
+; Note : This directive is NOT supported for libModSecurity (v3).
 
 == STREAM_OUTPUT_BODY ==
 This variable give access to the raw response body content.  This variable is best used for case:
