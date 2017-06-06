@@ -2171,6 +2171,13 @@ Contains the extra request URI information, also known as path info. (For exampl
 
 <code>SecRule PATH_INFO "^/(bin|etc|sbin|opt|usr)" "id:33"</code>
 
+== PERF_ALL ==
+This special variable contains a string that’s a combination of all other performance variables, arranged in the same order in which they appear in the Stopwatch2 audit log header. It’s intended for use in custom Apache logs
+
+'''Version:''' 2.6.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
+
 == PERF_COMBINED ==
 Contains the time, in microseconds, spent in ModSecurity during the current transaction. The value in this variable is arrived to by adding all the performance variables except PERF_SREAD (the time spent reading from persistent storage is already included in the phase measurements). 
 
@@ -2571,6 +2578,18 @@ SecRule SESSION:blocked "@eq 1" "phase:2,id:73,deny,status:403"
 
 == SESSIONID ==
 This variable contains the value set with setsid. See SESSION (above) for a complete example.
+
+== STATUS_LINE ==
+This variable holds the full status line sent by the server (including the request method and HTTP version information).
+
+<pre>
+# Generate an alert when the application generates 500 errors.
+SecRule STATUS_LINE "@contains 500" "phase:3,id:49,log,pass,logdata:'Application error detected!,t:none"
+</pre>
+
+'''Version:''' 2.6.0-2.9.x
+
+'''Supported on libModSecurity:''' No
 
 == STREAM_INPUT_BODY ==
 '''Version:''' 2.6.0-2.9.x
