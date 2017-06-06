@@ -1707,6 +1707,8 @@ This feature enables the creation of the STREAM_INPUT_BODY variable and is usefu
 
 ; Note : This directive is NOT supported for libModSecurity (v3). Naturally, STREAM_INPUT_BODY is also NOT supported on libModSecurity.
 
+; Note : This directive may significantly impact file upload times. The impact depends on server resources and the nature of operations being performed on the request bodies being streamed in.
+
 == SecStreamOutBodyInspection ==
 '''Description:''' Configures the ability to use stream inspection for outbound request data in a re-allocable buffer.  For security reasons we are still buffering the stream.
 
@@ -2587,9 +2589,9 @@ This variable holds the full status line sent by the server (including the reque
 SecRule STATUS_LINE "@contains 500" "phase:3,id:49,log,pass,logdata:'Application error detected!,t:none"
 </pre>
 
-'''Version:''' 2.6.0-2.9.x
+'''Version:''' 2.x
 
-'''Supported on libModSecurity:''' No
+'''Supported on libModSecurity:''' TBI
 
 == STREAM_INPUT_BODY ==
 '''Version:''' 2.6.0-2.9.x
