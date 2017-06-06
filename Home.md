@@ -41,7 +41,7 @@
 
 __Components__
 
-* [[libModSecurity | https://github.com/SpiderLabs/ModSecurity/tree/libmodsecurity]]
+* [[libModSecurity | https://github.com/SpiderLabs/ModSecurity/tree/v3/master]]
 * [[Nginx Connector | https://github.com/SpiderLabs/ModSecurity-nginx]]
 * [[Apache Connector | https://github.com/SpiderLabs/ModSecurity-apache]]
 * [[Pcap Connector | https://github.com/SpiderLabs/ModSecurity-pcap]]
