@@ -2918,7 +2918,14 @@ Replaces each occurrence of a C-style comment (/* ... */) with a single space (m
 Removes common comments chars (/*, */, --, #).
 
 == removeComments == 
+
+'''Version:''' 2.x-3.x(pre)
+
+'''Supported on libModSecurity:''' Yes
+
 Removes each occurrence of comment (/* ... */, --, #). Multiple consecutive occurrences of which will not be compressed.
+
+; Note : '''This transformation is known to be unreliable, might cause some unexpected behaviour and could be deprecated soon in a future release. Refer to issue [https://github.com/SpiderLabs/ModSecurity/issues/1207 #1207] for further information.'''.
 
 == replaceNulls == 
 Replaces NUL bytes in input with space characters (ASCII 0x20).
