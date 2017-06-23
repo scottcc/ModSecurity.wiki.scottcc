@@ -709,7 +709,9 @@ Every rule following a previous <code>SecDefaultAction</code> directive in the s
 
 '''Scope:''' Any 
 
-'''Version:''' 2.6.0 
+'''Version:''' 2.6.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' Off
 
