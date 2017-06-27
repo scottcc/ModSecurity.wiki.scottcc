@@ -3265,24 +3265,24 @@ SecRule REQUEST_URI "@beginsWith /index.php" "phase:1,t:none,pass, \
 </pre>
 
 The following configuration options are supported: 
-#'''auditEngine''' '''Supported on libModSecurity:''' TBI
+#'''auditEngine''' (Supported on libModSecurity: TBI)
 #'''auditLogParts''' 
-#'''debugLogLevel''' '''Supported on libModSecurity:''' TBI
-#'''forceRequestBodyVariable''' '''Supported on libModSecurity:''' TBI
+#'''debugLogLevel''' (Supported on libModSecurity: TBI)
+#'''forceRequestBodyVariable''' (Supported on libModSecurity: TBI)
 #'''requestBodyAccess''' 
-#'''requestBodyLimit''' '''Supported on libModSecurity:''' TBI
+#'''requestBodyLimit''' (Supported on libModSecurity: TBI)
 #'''requestBodyProcessor''' 
-#'''responseBodyAccess''' '''Supported on libModSecurity:''' TBI
-#'''responseBodyLimit''' '''Supported on libModSecurity:''' TBI
-#'''ruleEngine''' '''Supported on libModSecurity:''' TBI
+#'''responseBodyAccess''' (Supported on libModSecurity: TBI)
+#'''responseBodyLimit''' (Supported on libModSecurity: TBI)
+#'''ruleEngine''' (Supported on libModSecurity: TBI)
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
-#'''ruleRemoveByMsg''' '''Supported on libModSecurity:''' TBI
-#'''ruleRemoveByTag''' '''Supported on libModSecurity:''' TBI
+#'''ruleRemoveByMsg''' (Supported on libModSecurity: TBI)
+#'''ruleRemoveByTag''' (Supported on libModSecurity: TBI)
 #'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
-#'''ruleRemoveTargetByMsg''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. '''Supported on libModSecurity:''' TBI
+#'''ruleRemoveTargetByMsg''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. (Supported on libModSecurity: TBI)
 #'''ruleRemoveTargetByTag''' - since this action is used to just remove targets, users don't need to use the char ! before the target list.
-#'''hashEngine''' '''Supported on libModSecurity:''' TBI
-#'''hashEnforcement''' '''Supported on libModSecurity:''' TBI
+#'''hashEngine''' (Supported on libModSecurity: TBI)
+#'''hashEnforcement''' (Supported on libModSecurity: TBI)
 
 With the exception of the requestBodyProcessor and forceRequestBodyVariable settings, each configuration option corresponds to one configuration directive and the usage is identical.
 
