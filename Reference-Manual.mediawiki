@@ -1353,7 +1353,9 @@ This directive supports multiple parameters, each of which can be a rule ID or a
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 Normally, you would use SecRuleRemoveById to remove rules, but that requires the rules to have IDs defined. If they don’t, then you can remove them with SecRuleRemoveByMsg, which matches a regular expression against rule messages.
 
@@ -1368,7 +1370,9 @@ Normally, you would use SecRuleRemoveById to remove rules, but that requires the
 
 '''Scope:''' Any
 
-'''Version:''' 2.6
+'''Version:''' 2.6-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 Normally, you would use SecRuleRemoveById to remove rules, but that requires the rules to have IDs defined. If they don’t, then you can remove them with SecRuleRemoveByTag, which matches a regular expression against rule tag data.  This is useful if you want to disable entire groups of rules based on tag data.  Example tags used in the OWASP ModSecurity CRS include:
 *AUTOMATION/MALICIOUS
