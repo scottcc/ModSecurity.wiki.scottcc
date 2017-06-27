@@ -524,7 +524,9 @@ The possible values are:
 
 '''Scope:''' Any 
 
-'''Version:''' 2.5.0; deprecated in 2.5.6. 
+'''Version:''' 2.5.0; deprecated in 2.5.6.
+
+'''Supported on libModSecurity:''' No (Deprecated)
 
 The first directive parameter can be one of the following:
 *'''On''': Cache transformations (per transaction, per phase) allowing identical transforma- tions to be performed only once.
@@ -545,7 +547,9 @@ The following options are allowed (multiple options must be comma-separated):
 
 '''Scope:''' Main
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 This feature is not available on Windows builds. The internal chroot functionality provided by ModSecurity works great for simple setups. One example of a simple setup is Apache serving only static files, or running applications using built-in modules. Some problems you might encounter with more complex setups:
 #DNS lookups do not work (this is because this feature requires a shared library that is loaded on demand, after chroot takes place).
@@ -571,6 +575,8 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 
 '''Version:''' 2.6.3
 
+'''Supported on libModSecurity:''' Yes
+
 == SecComponentSignature ==
 '''Description:''' Appends component signature to the ModSecurity signature. 
 
@@ -581,6 +587,8 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 '''Scope:''' Main 
 
 '''Version:''' 2.5.0
+
+'''Supported on libModSecurity:''' Yes
 
 This directive should be used to make the presence of significant rule sets known. The entire signature will be recorded in the transaction audit log.
 
@@ -593,7 +601,9 @@ This directive should be used to make the presence of significant rule sets know
 
 '''Scope:''' Any
 
-'''Version:''' 2.8.0+
+'''Version:''' 2.8.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 Possible values are (Same as SecRuleEngine): 
 *'''On''': process SecConn[Read|Write]StateLimit.
@@ -609,7 +619,9 @@ Possible values are (Same as SecRuleEngine):
 
 '''Scope:''' Any
 
-'''Version:''' 2.5.0
+'''Version:''' 2.5.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 This directive provides an easy way to control content injection, no matter what the rules want to do. It is not necessary to have response body buffering enabled in order to use content injection.
 
@@ -626,6 +638,8 @@ This directive provides an easy way to control content injection, no matter what
 
 '''Version:''' 2.0.0 
 
+'''Supported on libModSecurity:''' Yes
+
 The possible values are:
 *'''0''': Use version 0 (Netscape) cookies. This is what most applications use. It is the default value.
 *'''1''': Use version 1 cookies.
@@ -637,7 +651,9 @@ The possible values are:
 
 '''Scope:''' Any
 
-'''Version:''' 2.7.0
+'''Version:''' 2.7.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 == SecDataDir ==
 '''Description:''' Path where persistent data (e.g., IP address data, session data, and so on) is to be stored.
@@ -649,6 +665,8 @@ The possible values are:
 '''Scope:''' Main
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 This directive must be provided before initcol, setsid, and setuid can be used. The directory to which the directive points must be writable by the web server user.
 
@@ -663,6 +681,8 @@ This directive must be provided before initcol, setsid, and setuid can be used. 
 
 '''Version:''' 2.0.0
 
+'''Supported on libModSecurity:''' Yes
+
 == SecDebugLogLevel ==
 '''Description:''' Configures the verboseness of the debug log data. 
 
@@ -673,6 +693,8 @@ This directive must be provided before initcol, setsid, and setuid can be used. 
 '''Scope:''' Any
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 Messages at levels 1–3 are always copied to the Apache error log. Therefore you can always use level 0 as the default logging level in production if you are very concerned with performance. Having said that, the best value to use is 3. Higher logging levels are not recommended in production, because the heavy logging affects performance adversely.
 
@@ -694,7 +716,9 @@ The possible values for the debug log level are:
 
 '''Scope:''' Any 
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' phase:2,log,auditlog,pass
 
@@ -726,7 +750,9 @@ This directive is necessary in reverse proxy mode when the backend servers suppo
 
 '''Scope''': Any 
 
-'''Version:''' 2.7.1
+'''Version:''' 2.7.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' Off
 
@@ -745,7 +771,9 @@ The possible values are:
 
 '''Scope''': Any 
 
-'''Version:''' 2.7.1
+'''Version:''' 2.7.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 ModSecurity hash engine will append, if specified, the user's session id or remote ip to the key before the MAC operation. If the first parameter is "rand" then a random key will be generated and used by the engine.
 
@@ -759,7 +787,9 @@ ModSecurity hash engine will append, if specified, the user's session id or remo
 
 '''Scope''': Any 
 
-'''Version:''' 2.7.1
+'''Version:''' 2.7.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 ModSecurity hash engine will add a new parameter to protected HTML elements containing the MAC hash.
 
@@ -772,7 +802,9 @@ ModSecurity hash engine will add a new parameter to protected HTML elements cont
 
 '''Scope:''' Any
 
-'''Version:''' 2.7.1
+'''Version:''' 2.7.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
 
@@ -795,7 +827,9 @@ The possible values for TYPE are:
 
 '''Scope:''' Any
 
-'''Version:''' 2.7.1
+'''Version:''' 2.7.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 As a initial support is possible to protect HREF, FRAME, IFRAME and FORM ACTION html elements as well response Location header when http redirect code are sent.
 
@@ -817,7 +851,9 @@ The possible values for TYPE are:
 
 '''Scope:''' Any
 
-'''Version:''' 2.5.0 
+'''Version:''' 2.5.0
+
+'''Supported on libModSecurity:''' Yes
 
 ModSecurity relies on the free geolocation databases (GeoLite City and GeoLite Country) that can be obtained from MaxMind [http://www.maxmind.com]. Currently ModSecurity only supports the legacy GeoIP format. Maxmind's newer GeoIP2 format is not yet currently supported. 
 
@@ -847,7 +883,9 @@ ModSecurity relies on the free Google Safe Browsing database that can be obtaine
 
 '''Scope:''' Main 
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 Guardian logging is designed to send the information about every request to an external program. Because Apache is typically deployed in a multiprocess fashion, which makes information sharing between processes difficult, the idea is to deploy a single external process to observe all requests in a stateful manner, providing additional protection.
 
@@ -865,6 +903,8 @@ Currently the only tool known to work with guardian logging is httpd-guardian, w
 
 '''Version:''' 2.7.0
 
+'''Supported on libModSecurity:''' Yes
+
 If the @rbl operator uses the dnsbl.httpbl.org RBL (http://www.projecthoneypot.org/httpbl_api.php) you must provide an API key.  This key is registered to individual users and is included within the RBL DNS requests.
 
 == SecInterceptOnError ==
@@ -876,7 +916,9 @@ If the @rbl operator uses the dnsbl.httpbl.org RBL (http://www.projecthoneypot.o
 
 '''Scope:''' Main 
 
-'''Version:''' 2.6
+'''Version:''' 2.6-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 When an operator execution fails, that is it returns greater than 0, this directive configures how to react.  When set to "Off", the rule is just ignored and the engine will continue executing the rules in phase.  When set to "On", the rule will be just dropped and no more rules will be executed in the same phase, also no interception is made.
 
@@ -914,6 +956,8 @@ SecMarker END_HOST_CHECK
 
 '''Version''': 2.5.12
 
+'''Supported on libModSecurity:''' Yes
+
 '''Default:''' 1500
 
 The default can be changed when ModSecurity is prepared for compilation: the --enable-pcre-match-limit=val configure option will set a custom default and the --disable-pcre-match-limit option will revert back to the default of the PCRE library.
@@ -929,6 +973,8 @@ For more information, refer to the pcre_extra field in the pcreapi man page.
 '''Scope:''' Main
 
 '''Version:''' 2.5.12
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' 1500
 
@@ -946,6 +992,8 @@ For more information, refer to the pcre_extra field in the pcreapi man page.
 
 '''Version:''' 2.5.0; removed from trunk
 
+'''Supported on libModSecurity:''' No (Deprecated)
+
 Once enabled access to PDF files is tracked. Direct access attempts are redirected to links that contain one-time tokens. Requests with valid tokens are allowed through, unmodified. Requests with invalid tokens are also allowed through, but with forced download of the PDF files. This implementation uses response headers to detect PDF files and thus can be used with dynamically generated PDF files that do not have the .pdf extension in the request URI.
 
 == SecPdfProtectMethod ==
@@ -957,7 +1005,9 @@ Once enabled access to PDF files is tracked. Direct access attempts are redirect
 
 '''Scope''': Any 
 
-'''Version:''' 2.5.0; removed from trunk 
+'''Version:''' 2.5.0; removed from trunk
+
+'''Supported on libModSecurity:''' No (Deprecated)
 
 '''Default:''' TokenRedirection
 
@@ -974,6 +1024,8 @@ Possible values are TokenRedirection and ForcedDownload. The token redirection a
 
 '''Version:''' 2.5.0; removed from trunk
 
+'''Supported on libModSecurity:''' No (Deprecated)
+
 You should use a reasonably long value for the secret (e.g., 16 characters is good). Once selected, the secret should not be changed, as it will break the tokens that were sent prior to change. But it’s not a big deal even if you change it. It will just force download of PDF files with tokens that were issued in the last few seconds.
 
 == SecPdfProtectTimeout ==
@@ -985,7 +1037,9 @@ You should use a reasonably long value for the secret (e.g., 16 characters is go
 
 '''Scope:''' Any 
 
-'''Version:''' 2.5.0; removed from trunk 
+'''Version:''' 2.5.0; removed from trunk
+
+'''Supported on libModSecurity:''' No (Deprecated)
 
 '''Default:''' 10
 
@@ -1000,7 +1054,9 @@ After token expires, it can no longer be used to allow access to a PDF file. Req
 
 '''Scope''': Any 
 
-'''Version''': 2.5.0; removed from trunk 
+'''Version''': 2.5.0; removed from trunk
+
+'''Supported on libModSecurity:''' No (Deprecated)
 
 '''Default:''' PDFTOKEN
 
@@ -1017,6 +1073,8 @@ The only reason you would want to change the name of the token is if you wanted 
 
 '''Version''': 2.5.13, DEPRECATED as of v2.8.0.
 
+'''Supported on libModSecurity:''' No (Deprecated)
+
 '''Default:''' 0 (no limit)
 
 For v2.8.0 or newest refer to SecConnReadStateLimit.
@@ -1030,7 +1088,9 @@ For v2.8.0 or newest refer to SecConnReadStateLimit.
 
 '''Scope''': Main 
 
-'''Version''': v2.8.0 (Apache only)
+'''Version''': v2.8.0-2.9.x (Apache only)
+
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' 0 (no limit)
 
@@ -1047,7 +1107,9 @@ This measure is effective against Slowloris-style attacks from a single IP addre
 
 '''Scope''': Main 
 
-'''Version''': 2.7.0 
+'''Version''': 2.7.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI 
 
 == SecWriteStateLimit ==
 '''Description:''' Establishes a per-IP address limit of how many connections are allowed to be in SERVER_BUSY_WRITE state. 
@@ -1059,6 +1121,8 @@ This measure is effective against Slowloris-style attacks from a single IP addre
 '''Scope''': Main 
 
 '''Version''': 2.6.0, DEPRECATED as of v2.8.0.
+
+'''Supported on libModSecurity:''' No (Deprecated)
 
 '''Default:''' 0 (no limit)
 
@@ -1073,7 +1137,9 @@ For v2.8.0 or newest refer to SecConnWriteStateLimit.
 
 '''Scope''': Main 
 
-'''Version''': 2.6.0 (Apache only)
+'''Version''': 2.6.0-2.9.x (Apache only)
+
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' 0 (no limit)
 
@@ -1091,6 +1157,8 @@ This measure is effective against Slow DoS request body attacks. v2.8.0 and newe
 '''Scope:''' Any 
 
 '''Version:''' 2.9.0-RC1+
+
+'''Supported on libModSecurity:''' Yes
 
 This is an optional directive that allow the user to load rules from a remote server. Notice that besides the URL the user also needs to supply a key, which could be used by the target server to provide different content for different keys. 
 
@@ -1114,6 +1182,8 @@ The optional option "crypto" tells ModSecurity to expect some encrypted content 
 
 '''Version:''' 2.9.0-RC1+
 
+'''Supported on libModSecurity:''' Yes
+
 The default action is to Abort whenever there is a problem downloading a given URL.
 
 ; Note : This directive also influences the behaviour of @ipMatchFromFile when used with a HTTPS URI to retrieve the remote file.
@@ -1128,6 +1198,8 @@ The default action is to Abort whenever there is a problem downloading a given U
 '''Scope:''' Any 
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 This directive is required if you want to inspect the data transported request bodies (e.g., POST parameters). Request buffering is also required in order to make reliable blocking possible.  The possible values are:
 *On: buffer request bodies
@@ -1144,6 +1216,8 @@ This directive is required if you want to inspect the data transported request b
 
 '''Version:''' 2.0.0
 
+'''Supported on libModSecurity:''' Yes
+
 '''Default:''' 131072 (128 KB) 
 
 When a multipart/form-data request is being processed, once the in-memory limit is reached, the request body will start to be streamed into a temporary file on disk.
@@ -1158,6 +1232,8 @@ When a multipart/form-data request is being processed, once the in-memory limit 
 '''Scope:''' Any 
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' 134217728 (131072 KB) 
 
@@ -1175,6 +1251,8 @@ Anything over the limit will be rejected with status code 413 (Request Entity To
 
 '''Version''': 2.5.0
 
+'''Supported on libModSecurity:''' Yes
+
 '''Default:''' 1048576 (1 MB)
 
 Generally speaking, the default value is not small enough. For most applications, you should be able to reduce it down to 128 KB or lower. Anything over the limit will be rejected with status code 413 (Request Entity Too Large). There is a hard limit of 1 GB.
@@ -1189,6 +1267,8 @@ Generally speaking, the default value is not small enough. For most applications
 '''Scope:''' Any 
 
 '''Version''': 2.6.0
+
+'''Supported on libModSecurity:''' Yes
 
 By default, ModSecurity will reject a request body that is longer than specified.  This is problematic especially when ModSecurity is being run in DetectionOnly mode and the intent is to be totally passive and not take any disruptive actions against the transaction. With the ability to choose what happens once a limit is reached, site administrators can choose to inspect only the first part of the request, the part that can fit into the desired limit, and let the rest through.  This is not ideal from a possible evasion issue perspective, however it may be acceptable under certain circumstances.
 
@@ -1205,6 +1285,8 @@ By default, ModSecurity will reject a request body that is longer than specified
 
 '''Version:''' 2.0.0
 
+'''Supported on libModSecurity:''' Yes
+
 '''Default''': 524288 (512 KB)
 
 Anything over this limit will be rejected with status code 500 (Internal Server Error). This setting will not affect the responses with MIME types that are not selected for buffering. There is a hard limit of 1 GB.
@@ -1220,6 +1302,8 @@ Anything over this limit will be rejected with status code 500 (Internal Server 
 
 '''Version:''' 2.5.0
 
+'''Supported on libModSecurity:''' Yes
+
 By default, ModSecurity will reject a response body that is longer than specified. Some web sites, however, will produce very long responses, making it difficult to come up with a reasonable limit. Such sites would have to raise the limit significantly to function properly, defying the purpose of having the limit in the first place (to control memory consumption). With the ability to choose what happens once a limit is reached, site administrators can choose to inspect only the first part of the response, the part that can fit into the desired limit, and let the rest through. Some could argue that allowing parts of responses to go uninspected is a weakness. This is true in theory, but applies only to cases in which the attacker controls the output (e.g., can make it arbitrary long). In such cases, however, it is not possible to prevent leakage anyway. The attacker could compress, obfuscate, or even encrypt data before it is sent back, and therefore bypass any monitoring device.
 
 == SecResponseBodyMimeType ==
@@ -1231,7 +1315,9 @@ By default, ModSecurity will reject a response body that is longer than specifie
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' text/plain text/html
 
@@ -1246,7 +1332,9 @@ Multiple SecResponseBodyMimeType directives can be used to add MIME types. Use S
 
 '''Scope:''' Any 
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 == SecResponseBodyAccess ==
 '''Description:''' Configures whether response bodies are to be buffered. 
@@ -1257,7 +1345,9 @@ Multiple SecResponseBodyMimeType directives can be used to add MIME types. Use S
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' Off
 
@@ -1276,6 +1366,8 @@ This directive is required if you plan to inspect HTML responses and implement r
 
 '''Version:''' 2.0.0
 
+'''Supported on libModSecurity:''' Yes
+
 Every rule must provide one or more variables along with the operator that should be used to inspect them. If no actions are provided, the default list will be used. (There is always a default list, even if one was not explicitly set with SecDefaultAction.) If there are actions specified in a rule, they will be merged with the default list to form the final actions that will be used. (The actions in the rule will overwrite those in the default list.) Refer to SecDefaultAction for more information.
 
 == SecRuleInheritance ==
@@ -1287,7 +1379,9 @@ Every rule must provide one or more variables along with the operator that shoul
 
 '''Scope:''' Any 
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' On
 
@@ -1307,7 +1401,9 @@ The possible values are:
 
 '''Scope''': Any 
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' Off
 
@@ -1325,7 +1421,9 @@ The possible values are:
 
 '''Scope:''' Any
 
-'''Version:''' 2.7 
+'''Version:''' 2.7-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 The rules hitting the threshold can be accessed via the collection PERF_RULES.
 
@@ -1660,7 +1758,9 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 
 '''Scope:''' Main
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 In order for this directive to work, you must set the Apache ServerTokens directive to Full. ModSecurity will overwrite the server signature data held in this memory space with the data set in this directive. If ServerTokens is not set to Full, then the memory space is most likely not large enough to hold the new data we are looking to insert.
 
@@ -1673,7 +1773,9 @@ In order for this directive to work, you must set the Apache ServerTokens direct
 
 '''Scope:''' Any
 
-'''Version:''' Under testing at the branch: https://github.com/SpiderLabs/ModSecurity/tree/modsec_status
+'''Version:''' 2.8.0-2.9.x
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' Off
 
@@ -1745,7 +1847,9 @@ This feature enables the creation of the STREAM_OUTPUT_BODY variable and is usef
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 The location specified needs to be writable by the Apache user process. This is the directory location where ModSecurity will swap data to disk if it runs out of memory (more data than what was specified in the SecRequestBodyInMemoryLimit directive) during inspection.
 
@@ -1758,7 +1862,9 @@ The location specified needs to be writable by the Apache user process. This is 
 
 '''Scope:''' Any
 
-'''Version:''' 2.6.1
+'''Version:''' 2.6.1-2.9.x
+
+'''Supported on libModSecurity:''' TBI
 
 == SecUnicodeCodePage ==
 '''Description:''' Defines which Unicode code point will be used by the urlDecodeUni transformation function during normalization.
@@ -1771,6 +1877,8 @@ The location specified needs to be writable by the Apache user process. This is 
 
 '''Version:''' 2.6.1 - DEPRECATED
 
+'''Supported on libModSecurity:''' No (Deprecated)
+
 == SecUploadDir ==
 '''Description:''' Configures the directory where intercepted files will be stored.
 
@@ -1781,6 +1889,8 @@ The location specified needs to be writable by the Apache user process. This is 
 '''Scope:''' Any
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 This directory must be on the same filesystem as the temporary directory defined with SecTmpDir. This directive is used with SecUploadKeepFiles.
 
@@ -1794,6 +1904,8 @@ This directory must be on the same filesystem as the temporary directory defined
 '''Scope:''' Any
 
 '''Version:''' 2.5.12
+
+'''Supported on libModSecurity:''' Yes
 
 The default is set to 100 files, but you are encouraged to reduce this value. Any file over the limit will not be extracted and the MULTIPART_FILE_LIMIT_EXCEEDED and MULTIPART_STRICT_ERROR flags will be set. To prevent bypassing any file checks, you must check for one of these flags.
 
@@ -1810,6 +1922,8 @@ The default is set to 100 files, but you are encouraged to reduce this value. An
 
 '''Version:''' 2.1.6
 
+'''Supported on libModSecurity:''' Yes
+
 This feature is not available on operating systems not supporting octal file modes. The default mode (0600) only grants read/write access to the account writing the file. If access from another account is needed (using clamd is a good example), then this directive may be required. However, use this directive with caution to avoid exposing potentially sensitive data to unauthorized users. Using the value "default" will revert back to the default setting.
 
 ; Note : The process umask may still limit the mode if it is being more restrictive than the mode set using this directive.
@@ -1824,6 +1938,8 @@ This feature is not available on operating systems not supporting octal file mod
 '''Scope:''' Any
 
 '''Version:''' 2.0.0
+
+'''Supported on libModSecurity:''' Yes
 
 This directive requires the storage directory to be defined (using SecUploadDir).
 
@@ -1871,7 +1987,9 @@ In the two examples configurations shown, SecWebAppId is being used in conjuncti
 
 '''Scope:''' Any 
 
-'''Version:''' 2.7.3 
+'''Version:''' 2.7.3
+
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' default is Off
 
@@ -2550,6 +2668,10 @@ SCRIPT_USERNAME "^apache$" "id:66"
 ; Note : Not available in proxy mode.
 
 == SDBM_DELETE_ERROR ==
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' No
+
 This variable is set to 1 when APR fails to delete SDBM entries.
 
 == SERVER_ADDR ==
@@ -3027,6 +3149,10 @@ SecAction phase:3,allow,id:98
 == append ==
 '''Description''': Appends text given as parameter to the end of response body. Content injection must be en- abled (using the SecContentInjection directive). No content type checks are made, which means that before using any of the content injection actions, you must check whether the content type of the response is adequate for injection.
 
+'''Version:''' 2.x-2.9.x
+
+'''Supported on libModSecurity:''' No
+
 '''Action Group:''' Non-disruptive
 
 '''Processing Phases:''' 3 and 4.
@@ -3139,24 +3265,24 @@ SecRule REQUEST_URI "@beginsWith /index.php" "phase:1,t:none,pass, \
 </pre>
 
 The following configuration options are supported: 
-#'''auditEngine''' 
+#'''auditEngine''' '''Supported on libModSecurity:''' TBI
 #'''auditLogParts''' 
-#'''debugLogLevel'''
-#'''forceRequestBodyVariable''' 
-#'''requestBodyAccess'''
-#'''requestBodyLimit''' 
+#'''debugLogLevel''' '''Supported on libModSecurity:''' TBI
+#'''forceRequestBodyVariable''' '''Supported on libModSecurity:''' TBI
+#'''requestBodyAccess''' 
+#'''requestBodyLimit''' '''Supported on libModSecurity:''' TBI
 #'''requestBodyProcessor''' 
-#'''responseBodyAccess''' 
-#'''responseBodyLimit'''
-#'''ruleEngine'''
+#'''responseBodyAccess''' '''Supported on libModSecurity:''' TBI
+#'''responseBodyLimit''' '''Supported on libModSecurity:''' TBI
+#'''ruleEngine''' '''Supported on libModSecurity:''' TBI
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
-#'''ruleRemoveByMsg'''
-#'''ruleRemoveByTag'''
+#'''ruleRemoveByMsg''' '''Supported on libModSecurity:''' TBI
+#'''ruleRemoveByTag''' '''Supported on libModSecurity:''' TBI
 #'''ruleRemoveTargetById''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
-#'''ruleRemoveTargetByMsg''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. 
+#'''ruleRemoveTargetByMsg''' - since this action is used to just remove targets, users don't need to use the char ! before the target list. '''Supported on libModSecurity:''' TBI
 #'''ruleRemoveTargetByTag''' - since this action is used to just remove targets, users don't need to use the char ! before the target list.
-#'''hashEngine'''
-#'''hashEnforcement'''
+#'''hashEngine''' '''Supported on libModSecurity:''' TBI
+#'''hashEnforcement''' '''Supported on libModSecurity:''' TBI
 
 With the exception of the requestBodyProcessor and forceRequestBodyVariable settings, each configuration option corresponds to one configuration directive and the usage is identical.
 
@@ -3178,6 +3304,10 @@ Example:
 == deprecatevar ==
 '''Description''': Decrements numerical value over time, which makes sense only applied to the variables stored in persistent storage.
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Non-Disruptive
 
 Example: The following example will decrement the counter by 60 every 300 seconds.
@@ -3189,6 +3319,10 @@ Counter values are always positive, meaning that the value will never go below z
 
 == drop ==
 '''Description:''' Initiates an immediate close of the TCP connection by sending a FIN packet.
+
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Action Group:''' Disruptive
 
@@ -3223,6 +3357,10 @@ The exec action is executed independently from any disruptive actions specified.
 
 == expirevar ==
 '''Description:''' Configures a collection variable to expire after the given time period (in seconds).
+
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Action Group:''' Non-disruptive
 
@@ -3389,6 +3527,10 @@ SecRule ARGS "test" "phase:2,log,pass,setvar:TX.test=+1,id:124"
 == pause ==
 '''Description:''' Pauses transaction processing for the specified number of milliseconds. Starting with ModSecurity 2.7 this feature also supports macro expansion.
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Disruptive
 
 '''Example:'''
@@ -3424,6 +3566,10 @@ SecRule REQUEST_HEADERS:User-Agent "Test" "phase:request,log,deny,id:127"
 == prepend ==
 '''Description:''' Prepends the text given as parameter to response body. Content injection must be enabled (using the SecContentInjection directive). No content type checks are made, which means that before using any of the content injection actions, you must check whether the content type of the response is adequate for injection.
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Non-disruptive
 
 '''Processing Phases:''' 3 and 4.
@@ -3437,6 +3583,10 @@ SecRule RESPONSE_CONTENT_TYPE ^text/html \ "phase:3,nolog,pass,id:128,prepend:'H
 
 == proxy ==
 '''Description:''' Intercepts the current transaction by forwarding the request to another web server using the proxy backend. The forwarding is carried out transparently to the HTTP client (i.e., there’s no external redirection taking place).
+
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Action Group:''' Disruptive
 
@@ -3478,6 +3628,10 @@ SecRule REQUEST_FILENAME|ARGS_NAMES|ARGS|XML:/* "(?:(?:[\;\|\`]\W*?\bcc|\b(wget|
 == sanitiseArg ==
 '''Description:''' Prevents sensitive request parameter data from being logged to audit log. Each byte of the named parameter(s) is replaced with an asterisk.
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Non-disruptive
 
 '''Example:'''
@@ -3491,6 +3645,10 @@ SecAction "nolog,phase:2,id:131,sanitiseArg:password,sanitiseArg:newPassword,san
 == sanitiseMatched ==
 '''Description:''' Prevents the matched variable (request argument, request header, or response header) from being logged to audit log. Each byte of the named parameter(s) is replaced with an asterisk.
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Non-disruptive
 
 '''Example:''' This action can be used to sanitise arbitrary transaction elements when they match a condition. For example, the example below will sanitise any argument that contains the word password in the name.
@@ -3502,6 +3660,10 @@ SecRule ARGS_NAMES password nolog,pass,id:132,sanitiseMatched
 
 == sanitiseMatchedBytes ==
 '''Description:''' Prevents the matched string in a variable from being logged to audit log. Each or a range of bytes of the named parameter(s) is replaced with an asterisk.
+
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Action Group:''' Non-disruptive
 
@@ -3520,6 +3682,10 @@ SecRule RESPONSE_BODY "@verifyCC \d{13,16}" "phase:4,id:134,t:none,log,capture,b
 == sanitiseRequestHeader ==
 '''Description:''' Prevents a named request header from being logged to audit log. Each byte of the named request header is replaced with an asterisk..
 
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
+
 '''Action Group:''' Non-disruptive
 
 '''Example:''' This will sanitise the data in the Authorization header.
@@ -3531,6 +3697,10 @@ SecAction "phase:1,nolog,pass,id:135,sanitiseRequestHeader:Authorization"
 
 == sanitiseResponseHeader ==
 '''Description:''' Prevents a named response header from being logged to audit log. Each byte of the named response header is replaced with an asterisk.
+
+'''Version:''' 2.x
+
+'''Supported on libModSecurity:''' TBI
 
 '''Action Group:''' Non-disruptive
 
@@ -3580,9 +3750,9 @@ After initialization takes place, the variable USERID will be available for use 
 
 '''Action Group:''' Non-disruptive
 
-'''Version:''' 2.x
+'''Version:''' 2.x-3.0(pre)
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes - as of 9cb3f2 [https://github.com/SpiderLabs/ModSecurity/commit/9cb3f23b5095cad7dfba8f140a44b9523f2be78b]
 
 '''Example:'''
 <pre>
