@@ -564,6 +564,8 @@ The best way to use SecChrootDir is the following:
 
 You should be aware that the internal chroot feature might not be 100% reliable. Due to the large number of default and third-party modules available for the Apache web server, it is not possible to verify the internal chroot works reliably with all of them. A module, working from within Apache, can do things that make it easy to break out of the jail. In particular, if you are using any of the modules that fork in the module initialisation phase (e.g., mod_fastcgi, mod_fcgid, mod_cgid), you are advised to examine each Apache process and observe its current working directory, process root, and the list of open files. Consider what your options are and make your own decision.
 
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
+
 == SecCollectionTimeout ==
 '''Description:''' Specifies the collections timeout. Default is 3600 seconds.
 
@@ -669,6 +671,8 @@ The possible values are:
 '''Supported on libModSecurity:''' Yes
 
 This directive must be provided before initcol, setsid, and setuid can be used. The directory to which the directive points must be writable by the web server user.
+
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
 
 == SecDebugLog ==
 '''Description''': Path to the ModSecurity debug log file. 
@@ -892,6 +896,8 @@ Guardian logging is designed to send the information about every request to an e
 Currently the only tool known to work with guardian logging is httpd-guardian, which is part of the Apache httpd tools project [http://apache-tools.cvs.sourceforge.net/viewvc/apache-tools/apache-tools/]. The httpd-guardian tool is designed to defend against denial of service attacks. It uses the blacklist tool (from the same project) to interact with an iptables-based (on a Linux system) or pf-based (on a BSD system) firewall, dynamically blacklisting the offending IP addresses. It can also interact with SnortSam [http://www.snortsam.net]. Assuming httpd-guardian is already configured (look into the source code for the detailed instructions), you only need to add one line to your Apache configuration to deploy it:
 <pre>SecGuardianLog |/path/to/httpd-guardian</pre>
 
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
+
 == SecHttpBlKey ==
 '''Description:''' Configures the user's registered Honeypot Project HTTP BL API Key to use with @rbl.
 
@@ -963,6 +969,8 @@ SecMarker END_HOST_CHECK
 The default can be changed when ModSecurity is prepared for compilation: the --enable-pcre-match-limit=val configure option will set a custom default and the --disable-pcre-match-limit option will revert back to the default of the PCRE library.
 For more information, refer to the pcre_extra field in the pcreapi man page.
 
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
+
 == SecPcreMatchLimitRecursion ==
 '''Description:''' Sets the match limit recursion in the PCRE library. 
 
@@ -980,6 +988,8 @@ For more information, refer to the pcre_extra field in the pcreapi man page.
 
 The default can be changed when ModSecurity is prepared for compilation: the --enable-pcre-match-limit-recursion=val configure option will set a custom default and the --disable-pcre-match-limit-recursion option will revert back to the default of the PCRE library.
 For more information, refer to the pcre_extra field in the pcreapi man page.
+
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
 
 == SecPdfProtect ==
 '''Description:''' Enables the PDF XSS protection functionality. 
@@ -1763,6 +1773,8 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 '''Supported on libModSecurity:''' TBI
 
 In order for this directive to work, you must set the Apache ServerTokens directive to Full. ModSecurity will overwrite the server signature data held in this memory space with the data set in this directive. If ServerTokens is not set to Full, then the memory space is most likely not large enough to hold the new data we are looking to insert.
+
+; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
 
 == SecStatusEngine ==
 '''Description:''' Controls Status Reporting functionality.  Uses DNS-based reporting to send software version information to the ModSecurity Project team.
@@ -4527,7 +4539,7 @@ SecRule ARGS "@verifyCC \d{13,16}" "phase:2,id:194,nolog,pass,msg:'Potential cre
 SecRule ARGS "@verifyCPF /^([0-9]{3}\.){2}[0-9]{3}-[0-9]{2}$/" "phase:2,id:195,nolog,pass,msg:'Potential CPF number',sanitiseMatched"
 </pre>
 
-'''Version:''' 2.6-2.9.x
+'''Version:''' 2.6-3.0(pre)
 
 '''Supported on libModSecurity:''' Yes
 
@@ -4541,7 +4553,7 @@ SecRule ARGS "@verifyCPF /^([0-9]{3}\.){2}[0-9]{3}-[0-9]{2}$/" "phase:2,id:195,n
 SecRule ARGS "@verifySSN \d{3}-?\d{2}-?\d{4}" "phase:2,id:196,nolog,pass,msg:'Potential social security number',sanitiseMatched"
 </pre>
 
-'''Version:''' 2.6-2.9.x
+'''Version:''' 2.6-3.0(pre)
 
 '''Supported on libModSecurity:''' Yes
 
