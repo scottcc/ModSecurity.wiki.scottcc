@@ -4005,6 +4005,8 @@ Your site has a wide '''select'''ion of computers.
 SecRule REQUEST_URI "@detectSQLi" "id:152"
 </pre>
 
+; Note : This operator supports the "capture" action.
+
 == detectXSS == 
 '''Description:''' Returns true if XSS injection is found. This operator uses LibInjection to detect XSS attacks.
 
@@ -4097,6 +4099,8 @@ SecGsbLookupDb /path/to/GsbMalware.dat
 # Check response bodies for malicious links
 SecRule RESPONSE_BODY "@gsbLookup =\"https?\:\/\/(.*?)\"" "phase:4,id:157,capture,log,block,msg:'Bad url detected in RESPONSE_BODY (Google Safe Browsing Check)',logdata:'http://www.google.com/safebrowsing/diagnostic?site=%{tx.0}'"
 </pre>
+
+; Note : This operator supports the "capture" action.
 
 == gt ==
 '''Description:''' Performs numerical comparison and returns true if the input value is greater than the operator parameter. Macro expansion is performed on the parameter string before comparison.
@@ -4287,6 +4291,7 @@ SecRule REQUEST_HEADERS:User-Agent "@pm WebZIP WebCopier Webster WebStripper ...
 
 ; Note : This operator does not support macro expansion (as of ModSecurity v2.9.1).
 
+; Note : This operator supports the "capture" action.
 
 == pmf ==
 Short alias for pmFromFile.
@@ -4348,6 +4353,8 @@ setvar:tx.%{rule.id}-AUTOMATION/MALICIOUS-%{matched_var_name}=%{matched_var},set
 ; Note : If the RBL used is dnsbl.httpbl.org (Honeypot Project RBL) then the SecHttpBlKey directive must specify the user's registered API key.
 ; Note : If the RBL used is either multi.uribl.com or zen.spamhaus.org combined RBLs, it is possible to also parse the return codes in the last octet of the DNS response to identify which specific RBL the IP was found in.
 
+; Note : This operator supports the "capture" action.
+
 == rsub ==
 '''Description''': Performs regular expression data substitution when applied to either the STREAM_INPUT_BODY or STREAM_OUTPUT_BODY variables. This operator also supports macro expansion. Starting with ModSecurity 2.7.0 this operator supports the syntax |hex| allowing users to use special chars like \n \r
 
@@ -4373,6 +4380,8 @@ Regular expressions are handled by the PCRE library [http://www.pcre.org]. ModSe
 
 Regular expressions are a very powerful tool. You are strongly advised to read the PCRE documentation to get acquainted with its features.
 
+; Note : This operator supports the "capture" action.
+
 == rx ==
 '''Description''': Performs a regular expression match of the pattern provided as parameter. '''This is the default operator; the rules that do not explicitly specify an operator default to @rx'''.
 
@@ -4394,6 +4403,8 @@ Regular expressions are handled by the PCRE library [http://www.pcre.org]. ModSe
 #The PCRE_DOTALL and PCRE_DOLLAR_ENDONLY flags are set during compilation, meaning that a single dot will match any character, including the newlines, and a $ end anchor will not match a trailing newline character.
 
 Regular expressions are a very powerful tool. You are strongly advised to read the PCRE documentation to get acquainted with its features.
+
+; Note : This operator supports the "capture" action.
 
 == streq ==
 '''Description:''' Performs a string comparison and returns true if the parameter string is identical to the input string. Macro expansion is performed on the parameter string before comparison.
@@ -4529,6 +4540,8 @@ The @validateUtf8Encoding operator detects the following problems:
 SecRule ARGS "@verifyCC \d{13,16}" "phase:2,id:194,nolog,pass,msg:'Potential credit card number',sanitiseMatched"
 </pre>
 
+; Note : This operator supports the "capture" action.
+
 == verifyCPF ==
 '''Description:''' Detects CPF numbers (Brazilian social number) in input. This operator will first use the supplied regular expression to perform an initial match, following up with an algorithm calculation to minimize false positives.
 
@@ -4542,6 +4555,8 @@ SecRule ARGS "@verifyCPF /^([0-9]{3}\.){2}[0-9]{3}-[0-9]{2}$/" "phase:2,id:195,n
 '''Version:''' 2.6-3.0(pre)
 
 '''Supported on libModSecurity:''' Yes
+
+; Note : This operator supports the "capture" action.
 
 == verifySSN ==
 '''Description:''' Detects US social security numbers (SSN) in input. This operator will first use the supplied regular expression to perform an initial match, following up with an SSN algorithm calculation to minimize false positives.
@@ -4571,6 +4586,8 @@ A Social Security number is broken up into 3 sections:
 *Cannot have area and/or group and/or serial zeroed sequences 
 *Area code must be less than 740 
 *Area code must be different then 666
+
+; Note : This operator supports the "capture" action.
 
 == within ==
 '''Description:''' Returns true if the input value (the needle) is found anywhere within the @within parameter (the haystack). Macro expansion is performed on the parameter string before comparison.
