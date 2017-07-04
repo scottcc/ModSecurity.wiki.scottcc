@@ -503,7 +503,7 @@ As with all logging mechanisms, ensure that you specify a file system location t
 == SecAuditLogType ==
 '''Description:''' Configures the type of audit logging mechanism to be used. 
 
-'''Syntax:''' <code>SecAuditLogType Serial|Concurrent </code>
+'''Syntax:''' <code>SecAuditLogType Serial|Concurrent|HTTPS </code>
 
 '''Example Usage:''' <code>SecAuditLogType Serial</code>
 
@@ -514,6 +514,10 @@ As with all logging mechanisms, ensure that you specify a file system location t
 The possible values are:
 ; Serial : Audit log entries will be stored in a single file, specified by SecAuditLog. This is conve- nient for casual use, but it can slow down the server, because only one audit log entry can be written to the file at any one time.
 ; Concurrent : One file per transaction is used for audit logging. This approach is more scalable when heavy logging is required (multiple transactions can be recorded in parallel). It is also the only choice if you need to use remote logging.
+
+; HTTPS : This functionality is only available on libModSecurity and its currently in testing phase. Depending on the amount of request that you have, it may be suitable. Use the URL of your endpoint instead of the path to a file.
+
+; Note : HTTPS audit log type is currently only supported on libModSecurity.
 
 == SecCacheTransformations ==
 '''Description:''' Controls the caching of transformations, which may speed up the processing of complex rule sets. Caching is off by default starting with 2.5.6, when it was deprecated and downgraded back to experimental.
