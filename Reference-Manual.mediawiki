@@ -1617,9 +1617,9 @@ The addition of t:none will neutralize any previous transformation functions spe
 
 '''Scope:''' Any
 
-'''Version:''' 2.6-2.9.x
+'''Version:''' 2.6-3.0(pre)
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 This directive will append (or replace) variables to the current target list of the specified rule with the targets provided in the second parameter. Starting with 2.7.0 this feature supports id range.
 
@@ -1724,9 +1724,9 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 
 '''Scope:''' Any
 
-'''Version:''' 2.7-2.9.x
+'''Version:''' 2.7-3.0(pre)
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 This directive will append (or replace) variables to the current target list of the specified rule with the targets provided in the second parameter.
 
@@ -3292,7 +3292,7 @@ The following configuration options are supported:
 #'''requestBodyProcessor''' 
 #'''responseBodyAccess''' (Supported on libModSecurity: TBI)
 #'''responseBodyLimit''' (Supported on libModSecurity: TBI)
-#'''ruleEngine''' (Supported on libModSecurity: TBI)
+#'''ruleEngine''' (Supported on libModSecurity: YES)
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
 #'''ruleRemoveByMsg''' (Supported on libModSecurity: TBI)
 #'''ruleRemoveByTag''' (Supported on libModSecurity: TBI)
