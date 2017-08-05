@@ -2123,7 +2123,7 @@ Contains the number of milliseconds elapsed since the beginning of the current t
 ; Note : Starting with ModSecurity 2.7.0 the time is microseconds.
 
 == ENV == 
-Collection that provides access to environment variables set by ModSecurity. Requires a single parameter to specify the name of the desired variable.
+Collection that provides access to environment variables set by ModSecurity or other server modules. Requires a single parameter to specify the name of the desired variable.
 <pre>
 # Set environment variable 
 SecRule REQUEST_FILENAME "printenv" \
@@ -2131,6 +2131,9 @@ SecRule REQUEST_FILENAME "printenv" \
 
 # Inspect environment variable
 SecRule ENV:tag "suspicious" "id:16"
+
+# Reading an environment variable from other Apache module (mod_ssl)
+SecRule TX:ANOMALY_SCORE "@gt 0" "phase:5,id:16,msg:'%{env.ssl_cipher}'"
 </pre>
 
 ; Note : Use setenv to set environment variables to be accessed by Apache.
