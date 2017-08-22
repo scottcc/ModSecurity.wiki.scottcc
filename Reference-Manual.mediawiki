@@ -1228,13 +1228,15 @@ This directive is required if you want to inspect the data transported request b
 
 '''Scope:''' Any 
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' No
 
 '''Default:''' 131072 (128 KB) 
 
 When a multipart/form-data request is being processed, once the in-memory limit is reached, the request body will start to be streamed into a temporary file on disk.
+
+; Note : libModSecurity is able to deal with request body in a file or in a buffer (chunked or not). Web servers have properties which controls whenever a request should be saved to a file or used as a buffer (e.g. client_body_buffer_size [https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size]) . If it is a file, ModSecurity will use the file to perform the inspection. If not, the buffer will be used.
 
 == SecRequestBodyLimit ==
 '''Description:''' Configures the maximum request body size ModSecurity will accept for buffering.
