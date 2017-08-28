@@ -1,0 +1,1 @@
+This is the first release candidate for **ModSecurity version 3**.
