@@ -1,4 +1,4 @@
-# ModSecurity version 3 Release Candidate 1 ** ***(DRAFT)*** **
+# ModSecurity version 3 Release Candidate 1
 
 **ModSecurity version 3 (RC1) is close to be released.** This wikipage highlights some of the updates between the latest ModSecurity version 2, v3 earlier codebases and the RC1 to be released.
 
