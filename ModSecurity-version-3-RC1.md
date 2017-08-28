@@ -1,12 +1,12 @@
 # ModSecurity version 3 Release Candidate 1
 
-**ModSecurity version 3 (RC1) is close to be released.** This wikipage highlights some of the updates between the latest ModSecurity version 2, v3 earlier codebases and the RC1 to be released.
+This wikipage highlights some of the updates between the latest ModSecurity version 2, v3 earlier codebases and the released RC1.
 
 This updated release candidate of libModSecurity is targeting the most widely used features from version 2. Its goal is to fully and correctly support common commercial and free rulesets such as "OWASP Core Rules Set version 3". We realize that many of the missing pieces have a very low audience, and they will continue to be targeted in the upcoming releases candidates. The updated list of missing pieces are listed in this wikipage.
 
-## Collectors
+## Connectors
 
-The Nginx connector is being the de-facto setup to use and test libModSecurity. We've been having many feedbacks from the community and commercial users as well as contributions for this setup. A lot of effort have been put into it so far. For this reason we're also close to an RC1 for the Nginx Connector.
+The Nginx connector is being the de-facto setup to use and test libModSecurity. We've been having many feedbacks from the community and commercial users as well as contributions for this setup. A lot of effort have been put into it so far. For this reason we're also close to a release for the Nginx Connector.
 
 https://github.com/SpiderLabs/ModSecurity-nginx
 
@@ -20,7 +20,7 @@ Effort has also been put to testing the code extensively. As of now we have Regr
 
 ## Missing pieces (Towards version 3 feature complete).
 
-The most importante missing features belong to a milestone: Feature complete. 
+The most important missing features belong to a milestone: Feature complete. 
 This milestone can be listed here:  https://github.com/SpiderLabs/ModSecurity/milestone/9
 
 Some other missing features are described on the reference manual by looking for the tag: Supported on libModSecurity: NO | TBI | TBD
