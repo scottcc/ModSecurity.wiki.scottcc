@@ -1112,7 +1112,7 @@ This measure is effective against Slowloris-style attacks from a single IP addre
 
 '''Note:''' This functionality is Apache only.
 
-'''Note 2:''' Make sure [[SecConnEngine]] is on prior to use this feature.
+'''Note 2:''' Make sure [[Reference-Manual:SecConnEngine]] is on prior to use this feature.
 
 == SecSensorId ==
 '''Description:''' Define a sensor ID that will be present into log part H. 
@@ -1163,7 +1163,7 @@ This measure is effective against Slow DoS request body attacks. v2.8.0 and newe
 
 '''Note:''' This functionality is Apache only.
 
-'''Note 2:''' Make sure [[SecConnEngine]] is on prior to use this feature.
+'''Note 2:''' Make sure [[Reference-Manual:SecConnEngine]] is on prior to use this feature.
 
 == SecRemoteRules ==
 '''Description''': Load rules from a given file hosted on a HTTPS site.
