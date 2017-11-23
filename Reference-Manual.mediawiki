@@ -73,10 +73,12 @@ http://www.pcre.org/
 === libxml2 ===
 http://xmlsoft.org/downloads.html
 
-=== liblua v5.1.x ===
+=== liblua v5.x.x ===
 This library is optional and only needed if you will be using the new Lua engine - http://www.lua.org/download.html
 
 ; Note : that ModSecurity requires the dynamic libraries. These are not built by default in the source distribution, so the binary distribution is recommended.
+
+; Note : libModSecurity (aka v3) is compatible with Lua 5.2+.
 
 === libcurl v7.15.1 or higher ===
 
@@ -1524,9 +1526,9 @@ Description: This directive creates a special rule that executes a Lua script to
 
 '''Scope:''' Any
 
-'''Version:''' 2.5.0-2.9.x
+'''Version:''' 2.5.0-3.0.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' YES
 
 ; Note : All Lua scripts are compiled at configuration time and cached in memory. To reload scripts you must reload the entire ModSecurity configuration by restarting Apache.
 
@@ -1586,7 +1588,9 @@ end
 </pre>
 ; Note : Go to http://www.lua.org/ to find more about the Lua programming language. The reference manual too is available online, at http://www.lua.org/manual/5.1/.
 
-; Note : Lua support is marked as experimental as the way the progamming interface may continue to evolve while we are working for the best implementation style. Any user input into the programming interface is appreciated.
+; Note : Lua support is marked as experimental as the way the programming interface may continue to evolve while we are working for the best implementation style. Any user input into the programming interface is appreciated.
+
+; Note : libModSecurity (aka v3) is compatible with Lua 5.2+.
 
 == SecRuleUpdateActionById ==
 '''Description:''' Updates the action list of the specified rule.
@@ -3370,7 +3374,7 @@ This action is extremely useful when responding to both Brute Force and Denial o
 
 '''Version:''' 2.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' YES
 
 '''Example:'''
 <pre>
