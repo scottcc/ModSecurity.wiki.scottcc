@@ -23,6 +23,10 @@
 * [[Tools]]
 * [[Windows Troubleshooting | IIS-Troubleshooting]]
 
+### External documentation
+
+* [ModSecurity 3.0 and NGINX: Quick Start Guide](https://www.nginx.com/resources/library/modsecurity-3-nginx-quick-start-guide/)
+
 
 # 🚢 Development
 
