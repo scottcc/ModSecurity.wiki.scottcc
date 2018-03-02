@@ -581,9 +581,9 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 
 '''Scope:''' Any
 
-'''Version:''' 2.6.3
+'''Version:''' 2.6.3-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' No
 
 == SecComponentSignature ==
 '''Description:''' Appends component signature to the ModSecurity signature. 
@@ -594,7 +594,7 @@ You should be aware that the internal chroot feature might not be 100% reliable.
 
 '''Scope:''' Main 
 
-'''Version:''' 2.5.0
+'''Version:''' 2.5.0-3.x
 
 '''Supported on libModSecurity:''' Yes
 
@@ -644,13 +644,15 @@ This directive provides an easy way to control content injection, no matter what
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0 
+'''Version:''' 2.0.0-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' TBD
 
 The possible values are:
 *'''0''': Use version 0 (Netscape) cookies. This is what most applications use. It is the default value.
 *'''1''': Use version 1 cookies.
+
+; Note : Only version 0 (Netscape) cookies is currently supported on libModSecurity (v3)
 
 == SecCookieV0Separator ==
 '''Description:''' Specifies which character to use as the separator for cookie v0 content.
