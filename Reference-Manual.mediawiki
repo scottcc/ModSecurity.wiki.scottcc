@@ -674,13 +674,15 @@ The possible values are:
 
 '''Scope:''' Main
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' No
 
 This directive must be provided before initcol, setsid, and setuid can be used. The directory to which the directive points must be writable by the web server user.
 
 ; Note : This directive is not allowed inside VirtualHosts. If enabled, it must be placed in a global server-wide configuration file such as your default modsecurity.conf.
+
+; Note : SecDataDir is not currently supported. Collections are kept in memory (in_memory-per_process) for now.
 
 == SecDebugLog ==
 '''Description''': Path to the ModSecurity debug log file. 
@@ -945,7 +947,9 @@ When an operator execution fails, that is it returns greater than 0, this direct
 
 '''Scope:''' Any 
 
-'''Version:''' 2.5.0
+'''Version:''' 2.5.0-3.x
+
+'''Supported on libModSecurity:''' Yes
 
 The value can be either a number or a text string.  The SecMarker directive is available to allow you to choose the best way to implement a skip-over. Here is an example used from the Core Rule Set:
 <pre>
@@ -968,9 +972,9 @@ SecMarker END_HOST_CHECK
 
 '''Scope:''' Main
 
-'''Version''': 2.5.12
+'''Version''': 2.5.12-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' 1500
 
@@ -988,9 +992,9 @@ For more information, refer to the pcre_extra field in the pcreapi man page.
 
 '''Scope:''' Main
 
-'''Version:''' 2.5.12
+'''Version:''' 2.5.12-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' 1500
 
@@ -1477,9 +1481,9 @@ This directive supports multiple parameters, each of which can be a rule ID or a
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0-2.9.x
+'''Version:''' 2.0.0-3.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 Normally, you would use SecRuleRemoveById to remove rules, but that requires the rules to have IDs defined. If they don’t, then you can remove them with SecRuleRemoveByMsg, which matches a regular expression against rule messages.
 
@@ -1494,9 +1498,9 @@ Normally, you would use SecRuleRemoveById to remove rules, but that requires the
 
 '''Scope:''' Any
 
-'''Version:''' 2.6-2.9.x
+'''Version:''' 2.6-3.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 Normally, you would use SecRuleRemoveById to remove rules, but that requires the rules to have IDs defined. If they don’t, then you can remove them with SecRuleRemoveByTag, which matches a regular expression against rule tag data.  This is useful if you want to disable entire groups of rules based on tag data.  Example tags used in the OWASP ModSecurity CRS include:
 *AUTOMATION/MALICIOUS
@@ -1528,9 +1532,9 @@ Description: This directive creates a special rule that executes a Lua script to
 
 '''Scope:''' Any
 
-'''Version:''' 2.5.0-3.0.x
+'''Version:''' 2.5.0-3.x
 
-'''Supported on libModSecurity:''' YES
+'''Supported on libModSecurity:''' Yes
 
 ; Note : All Lua scripts are compiled at configuration time and cached in memory. To reload scripts you must reload the entire ModSecurity configuration by restarting Apache.
 
@@ -1688,9 +1692,9 @@ SecRule REQUEST_URI|ARGS_NAMES|ARGS|XML:/* "[\;\|\`]\W*?\bmail\b" \
 
 '''Scope:''' Any
 
-'''Version:''' 2.7-2.9.x
+'''Version:''' 2.7-3.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 This directive will append (or replace) variables to the current target list of the specified rule with the targets provided in the second parameter.
 
@@ -1803,7 +1807,7 @@ In order for this directive to work, you must set the Apache ServerTokens direct
 
 '''Version:''' 2.8.0-2.9.x
 
-'''Supported on libModSecurity:''' Yes
+'''Supported on libModSecurity:''' TBI
 
 '''Default:''' Off
 
@@ -1877,9 +1881,11 @@ This feature enables the creation of the STREAM_OUTPUT_BODY variable and is usef
 
 '''Version:''' 2.0.0-2.9.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' No
 
 The location specified needs to be writable by the Apache user process. This is the directory location where ModSecurity will swap data to disk if it runs out of memory (more data than what was specified in the SecRequestBodyInMemoryLimit directive) during inspection.
+
+As of ModSecurity version 3.0, SecTmpDir is no longer supported. libModSecurity is able to deal with request body in a file or in a buffer (chunked or not). Web servers have properties which controls whenever a request should be saved to a file or used as a buffer (e.g. client_body_buffer_size https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size) . If it is a file, ModSecurity will use the file to perform the inspection. If not, the buffer will be used.
 
 == SecUnicodeMapFile ==
 '''Description:''' Defines the path to the file that will be used by the urlDecodeUni transformation function to map Unicode code points during normalization and specifies the Code Point to use.
@@ -1916,7 +1922,7 @@ The location specified needs to be writable by the Apache user process. This is 
 
 '''Scope:''' Any
 
-'''Version:''' 2.0.0
+'''Version:''' 2.0.0-3.x
 
 '''Supported on libModSecurity:''' Yes
 
@@ -1931,7 +1937,7 @@ This directory must be on the same filesystem as the temporary directory defined
 
 '''Scope:''' Any
 
-'''Version:''' 2.5.12
+'''Version:''' 2.5.12-3.x
 
 '''Supported on libModSecurity:''' Yes
 
@@ -1977,6 +1983,8 @@ Possible values are:
 *'''Off''' - Do not keep uploaded files.
 *'''RelevantOnly''' - This will keep only those files that belong to requests that are deemed relevant.
 
+; Note : RelevantOnly is not yet supported on libModSecurity
+
 == SecWebAppId ==
 '''Description:''' Creates an application namespace, allowing for separate persistent session and user storage.
 
@@ -1986,9 +1994,9 @@ Possible values are:
 
 '''Scope:''' Any 
 
-'''Version:''' 2.0.0-2.9.x
+'''Version:''' 2.0.0-3.x
 
-'''Supported on libModSecurity:''' TBI
+'''Supported on libModSecurity:''' Yes
 
 '''Default:''' default
 
