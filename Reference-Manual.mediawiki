@@ -3306,16 +3306,16 @@ SecRule REQUEST_URI "@beginsWith /index.php" "phase:1,t:none,pass, \
 </pre>
 
 The following configuration options are supported: 
-#'''auditEngine''' (Supported on libModSecurity: TBI)
+#'''auditEngine'''
 #'''auditLogParts''' 
 #'''debugLogLevel''' (Supported on libModSecurity: TBI)
-#'''forceRequestBodyVariable''' (Supported on libModSecurity: TBI)
+#'''forceRequestBodyVariable'''
 #'''requestBodyAccess''' 
 #'''requestBodyLimit''' (Supported on libModSecurity: TBI)
 #'''requestBodyProcessor''' 
 #'''responseBodyAccess''' (Supported on libModSecurity: TBI)
 #'''responseBodyLimit''' (Supported on libModSecurity: TBI)
-#'''ruleEngine''' (Supported on libModSecurity: YES)
+#'''ruleEngine'''
 #'''ruleRemoveById''' - since this action us triggered at run time, it should be specified '''before''' the rule in which it is disabling.
 #'''ruleRemoveByMsg''' (Supported on libModSecurity: TBI)
 #'''ruleRemoveByTag''' (Supported on libModSecurity: TBI)
