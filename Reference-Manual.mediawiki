@@ -4051,6 +4051,8 @@ SecRule REQUEST_URI "@detectSQLi" "id:152"
 SecRule REQUEST_BODY "@detectXSS" "id:12345,log,deny"
 </pre>
 
+; Note : This operator supports the "capture" action.
+
 == endsWith == 
 '''Description:''' Returns true if the parameter string is found at the end of the input. Macro expansion is performed on the parameter string before comparison.
 
