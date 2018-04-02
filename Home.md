@@ -6,22 +6,26 @@
 
 # 📚 Documentation
 
-* [[Installation from source | Compilation-recipes]]
-* [[Reference Manual | Reference-Manual]]
- - [[Introduction | Reference-Manual#Introduction]]
- - [[Rule Sets (OWASP Core) | Reference-Manual#OWASP_ModSecurity_Core_Rule_Set_CRS_Project]]
- - [[Installation Apache | Reference-Manual#Installation_for_Apache]]
- - [[Configuration Apache | Reference-Manual#configure-modsecurity]]
- - [[Installation Nginx | Reference-Manual#installation-for-nginx]]
- - [[Configuration Nginx | Reference-Manual#configuration-steps]]
- - [[Installation IIS | Reference-Manual#installation-for-microsoft-iis]]
- - [[Configuration Reference | Reference-Manual#configuration-directives]]
- - [[Recommended Base Configuration | Reference-Manual#a-recommended-base-configuration]]
- 
+* ModSecurity version 3
+   - [[Installation from source | Compilation-recipes-for-v3.x]]
+   - [[Reference Manual v3.x | Reference-Manual-(v3.x)]]
+
+* ModSecurity version 2
+   - [[Reference Manual v2.x | Reference-Manual-(v2.x)]]
+   - [[Introduction | Reference-Manual-(v2.x)#Introduction]]
+   - [[Installation Apache | Reference-Manual-(v2.x)#Installation_for_Apache]]
+   - [[Configuration Apache | Reference-Manual-(v2.x)#configure-modsecurity]]
+   - [[Installation Nginx | Reference-Manual-(v2.x)#installation-for-nginx]]
+   - [[Configuration Nginx | Reference-Manual-(v2.x)#configuration-steps]]
+   - [[Installation IIS | Reference-Manual-(v2.x)#installation-for-microsoft-iis]]
+   - [[Configuration Reference | Reference-Manual-(v2.x)#configuration-directives]]
+   - [[Recommended Base Configuration | Reference-Manual-(v2.x)#a-recommended-base-configuration]]
+   - [[Rule Sets (OWASP Core) | Reference-Manual-(v2.x)#OWASP_ModSecurity_Core_Rule_Set_CRS_Project]]
+   - [[Windows Troubleshooting | IIS-Troubleshooting]]
+
 
 * [[Log Data Format|ModSecurity-2-Data-Formats]]
 * [[Tools]]
-* [[Windows Troubleshooting | IIS-Troubleshooting]]
 
 ### External documentation
 
