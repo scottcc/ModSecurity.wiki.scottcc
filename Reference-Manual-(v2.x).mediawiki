@@ -1351,6 +1351,8 @@ By default, ModSecurity will reject a response body that is longer than specifie
 
 Multiple SecResponseBodyMimeType directives can be used to add MIME types. Use SecResponseBodyMimeTypesClear to clear previously configured MIME types and start over.
 
+; Note : Users that wish to perform JSON body inspection on response (phase 4) need to add _application/json_ to SecResponseBodyMimeType.
+
 ==  SecResponseBodyMimeTypesClear ==
 '''Description:''' Clears the list of MIME types considered for response body buffering, allowing you to start populating the list from scratch.
 
