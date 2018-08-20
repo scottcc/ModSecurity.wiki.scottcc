@@ -1157,7 +1157,7 @@ For v2.8.0 or newest refer to SecConnWriteStateLimit.
 
 '''Syntax:''' <code>SecConnWriteStateLimit LIMIT OPTIONAL_IP_MATCH_OPERATOR</code>
 
-'''Example Usage''': <code>SecConnWriteStateLimit 50 "!ipMatch 127.0.0.1"</code>
+'''Example Usage''': <code>SecConnWriteStateLimit 50 "!@ipMatch 127.0.0.1"</code>
 
 '''Scope''': Main 
 
