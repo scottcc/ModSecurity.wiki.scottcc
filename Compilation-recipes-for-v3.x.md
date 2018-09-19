@@ -13,6 +13,7 @@ If your distribution is missing and you manage to compile it, don't forget to ad
 3. [CentOS 6.x](#centos-6x)
 4. [CentOS 6.5](#centos-65-minimal)
 5. [Ubuntu 15.04](#ubuntu-1504)
+6. [Mac OSX 10.13](#osx-1013)
 
 ## Centos 7 Minimal
 
@@ -251,3 +252,65 @@ $ ./configure
 $ make
 $ make install
 ```
+
+## Mac OSX 10.13.6
+
+Sent by @scottcc (See: #1907)
+
+Note: There's probably ways to do this that don't involve `homebrew` - those were not explored.
+
+### libModSecurity
+
+```sh
+brew install flex bison zlib curl pcre libffi autoconf automake yajl pkg-config libtool ssdeep luarocks
+brew install geoip --with-geoipupdate
+brew install doxygen --with-llvm
+
+# Arbitrarily, create a directory to put things in
+sudo mkdir -p /usr/local/modsecurity
+sudo chown -R $(whoami) /usr/local/modsecurity
+
+cd /usr/local/opt
+mkdir ModSecurity
+git clone https://github.com/SpiderLabs/ModSecurity && cd ModSecurity
+git checkout -b v3/master origin/v3/master
+sh build.sh
+git submodule init && git submodule update
+./configure
+make
+make install
+```
+
+### nginx connector
+
+Note: the exports are *slightly* different than other OS's listed above.
+
+```sh
+MOD_SECURITY_INC=/usr/local/opt/ModSecurity/headers/
+MOD_SECURITY_LIB=/usr/local/opt/ModSecurity/src/.libs/
+
+cd /usr/local/opt/
+git clone https://github.com/SpiderLabs/ModSecurity-nginx
+
+# NOW edit the brew nginx formula to have two chunks added:
+
+option "with-modsecurity", "Compile with v3 ModSecurity module"
+
+# then later near the bottom:
+
+ if build.with? "modsecurity"
+   args << "--add-module=/usr/local/opt/ModSecurity-nginx"
+ end
+
+# NOW, one builds that like:
+brew install -vd --build-from-source nginx --with-modsecurity
+
+# TEST that with (make sure you see "--add-module=/usr/local/opt/ModSecurity-nginx" in there, likely at end)
+nginx -V
+```
+
+
+
+
+
+
