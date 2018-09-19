@@ -253,7 +253,7 @@ $ make
 $ make install
 ```
 
-## Mac OSX 10.13.6
+## Mac OSX 10.13
 
 Sent by @scottcc (See: #1907)
 
