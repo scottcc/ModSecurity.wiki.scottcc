@@ -292,18 +292,17 @@ MOD_SECURITY_LIB=/usr/local/opt/ModSecurity/src/.libs/
 cd /usr/local/opt/
 git clone https://github.com/SpiderLabs/ModSecurity-nginx
 
-# NOW edit the brew nginx formula to have two chunks added:
+# NOW edit the brew nginx formula to have two chunks added (brew edit nginx)
+    option "with-modsecurity", "Compile with v3 ModSecurity module"
 
-option "with-modsecurity", "Compile with v3 ModSecurity module"
+# then later near the bottom, add a chunk that detects this and adds the module
+    if build.with? "modsecurity"
+        args << "--add-module=/usr/local/opt/ModSecurity-nginx"
+    end
 
-# then later near the bottom:
-
- if build.with? "modsecurity"
-   args << "--add-module=/usr/local/opt/ModSecurity-nginx"
- end
-
-# NOW, one builds that like:
+# Use homebrew to build it from source with the new argument you just added:
 brew install -vd --build-from-source nginx --with-modsecurity
+# You should see in the output somewhere that it "found /usr/local/modsecurity", or close to that.
 
 # TEST that with (make sure you see "--add-module=/usr/local/opt/ModSecurity-nginx" in there, likely at end)
 nginx -V
